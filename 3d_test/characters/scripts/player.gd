@@ -11,9 +11,11 @@ extends CharacterBody3D
 @export var move_speed : float = 8.0
 @export var acceleration : float = 20.0
 @export var rotation_speed : float = 10.0
+@export var jump_impulse : float = 12.0
 
 var camera_input_direction : Vector2 = Vector2.ZERO
 var last_movement_direction : Vector3 = Vector3.BACK
+var gravity : float = -30.0
 
 
 func _physics_process(delta: float) -> void:
@@ -46,21 +48,42 @@ func _movement(delta: float) -> void:
 	var forward : Vector3 = camera.global_basis.z
 	var right : Vector3 = camera.global_basis.x
 
+	# Movement calculations
 	var move_direction : Vector3 = forward * raw_input.y + right * raw_input.x
 	move_direction.y = 0.0
 	move_direction = move_direction.normalized()
 
+	# Velocity calculations
+	var y_velocity := velocity.y
+	velocity.y = 0.0
 	velocity = velocity.move_toward(move_direction * move_speed, acceleration * delta)
+	velocity.y = y_velocity + gravity * delta
+
+	# Jump calculations
+	var is_starting_jump := Input.is_action_just_pressed("jump") and is_on_floor()
+	if is_starting_jump:
+		velocity.y += jump_impulse
+
 	move_and_slide()
-	
+
+	# Player Model angle calculations
 	if move_direction.length() > 0.2:
 		last_movement_direction = move_direction
 	var target_angle : float = Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
 	player_model.global_rotation.y = lerp_angle(player_model.rotation.y, target_angle, rotation_speed * delta)
-	
-	var ground_speed : float = velocity.length()
-	var animation_player : AnimationPlayer = player_model.get_node("AnimationPlayer")
-	if ground_speed > 0.0:
-		animation_player.play("player_anims/Walking")
-	else:
-		animation_player.play("player_anims/Idle")
+
+	# Animations
+	if is_starting_jump:
+		print("Jumping")
+	elif not is_on_floor() and velocity.y < 0:
+		print("Falling")
+	elif is_on_floor():
+		var is_starting_crouch := Input.is_action_just_pressed("crouch")
+		if is_starting_crouch:
+			print("Crouching")
+		else:
+			var ground_speed : float = velocity.length()
+			if ground_speed > 0.0:
+				player_model.move()
+			else:
+				player_model.idle()

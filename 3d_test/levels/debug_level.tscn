@@ -32,4 +32,5 @@ shadow_enabled = true
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+use_collision = true
 mesh = SubResource("PlaneMesh_tbca2")

@@ -10,14 +10,17 @@ height = 1.85
 [sub_resource type="SphereShape3D" id="SphereShape3D_3eadt"]
 
 [node name="player" type="CharacterBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("1_3eadt")
-
-[node name="player_model" parent="." instance=ExtResource("2_3eadt")]
-unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
 shape = SubResource("CapsuleShape3D_54qew")
+
+[node name="player_model" parent="." instance=ExtResource("2_3eadt")]
+unique_name_in_owner = true
 
 [node name="CameraPivot" type="Node3D" parent="."]
 unique_name_in_owner = true
