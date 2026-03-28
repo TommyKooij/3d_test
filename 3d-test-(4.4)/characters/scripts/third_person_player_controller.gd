@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @onready var camera_pivot : Node3D = %CameraPivot
 @onready var camera : Camera3D = %Camera3D

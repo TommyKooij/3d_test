@@ -17,8 +17,7 @@ sky = SubResource("Sky_offe2")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_rggqk"]
-size = Vector3(20, 0.1, 20)
+[sub_resource type="PlaneMesh" id="PlaneMesh_tbca2"]
 
 [node name="debug_level" type="Node3D"]
 
@@ -30,8 +29,8 @@ transform = Transform3D(-4.37114e-08, -0.866025, -0.5, 0, -0.5, 0.866026, -0.999
 shadow_enabled = true
 
 [node name="ThirdPersonPlayer" parent="." instance=ExtResource("1_rggqk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09473121, 0)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 use_collision = true
-mesh = SubResource("BoxMesh_rggqk")
+mesh = SubResource("PlaneMesh_tbca2")
