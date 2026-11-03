@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://qe0jg568lw27"]
-
-[ext_resource type="PackedScene" uid="uid://blon0oi75qfv" path="res://characters/ThirdPersonPlayer.tscn" id="1_rggqk"]
+[gd_scene load_steps=5 format=3 uid="uid://qe0jg568lw27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rggqk"]
 sky_top_color = Color(0.129, 0.129, 0.129, 1)
@@ -18,9 +16,9 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_rggqk"]
-size = Vector3(20, 0.1, 20)
+size = Vector3(50, 0.1, 50)
 
-[node name="debug_level" type="Node3D"]
+[node name="DebugLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_spoyw")
@@ -29,9 +27,8 @@ environment = SubResource("Environment_spoyw")
 transform = Transform3D(-4.37114e-08, -0.866025, -0.5, 0, -0.5, 0.866026, -0.999999, 3.78552e-08, 2.18557e-08, 0, 9, 0)
 shadow_enabled = true
 
-[node name="ThirdPersonPlayer" parent="." instance=ExtResource("1_rggqk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09473121, 0)
-
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 use_collision = true
 mesh = SubResource("BoxMesh_rggqk")
+
+[node name="Start" type="Marker3D" parent="."]

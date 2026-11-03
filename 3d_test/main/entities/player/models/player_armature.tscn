@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://bufjl1vcungfc"]
 
-[ext_resource type="AnimationLibrary" uid="uid://655c2sgwove5" path="res://characters/anims/player_anims.res" id="1_aippx"]
+[ext_resource type="AnimationLibrary" uid="uid://655c2sgwove5" path="res://main/entities/player/anims/player_anims.res" id="1_aippx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pejkl"]
 resource_name = "Beta_Joints_MAT1"

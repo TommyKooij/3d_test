@@ -12,9 +12,13 @@ config_version=5
 
 config/name="3D_TEST"
 config/tags=PackedStringArray("test")
-run/main_scene="res://levels/debug_level.tscn"
-config/features=PackedStringArray("26.1", "Forward Plus", "Redot")
+run/main_scene="uid://damliaoxxlbpp"
+config/features=PackedStringArray("26.2", "Forward Plus", "Redot")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Singleton="*res://main/nodes/Singleton.tscn"
 
 [input]
 

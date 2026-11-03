@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=4 uid="uid://dds7dn7mbjxl3"]
 
-[ext_resource type="Script" path="res://characters/scripts/player_model.gd" id="1_4fe6t"]
-[ext_resource type="PackedScene" uid="uid://bufjl1vcungfc" path="res://characters/models/player_armature.tscn" id="2_4fe6t"]
+[ext_resource type="Script" uid="uid://d36llvywu60bx" path="res://main/entities/player/scripts/player_model.gd" id="1_4fe6t"]
+[ext_resource type="PackedScene" uid="uid://bufjl1vcungfc" path="res://main/entities/player/models/player_armature.tscn" id="2_4fe6t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pejkl"]
 resource_name = "Beta_Joints_MAT1"

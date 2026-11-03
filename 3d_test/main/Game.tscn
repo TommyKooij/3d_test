@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://damliaoxxlbpp"]
+
+[ext_resource type="PackedScene" uid="uid://blon0oi75qfv" path="res://main/entities/player/Player.tscn" id="1_4hvhl"]
+[ext_resource type="Script" uid="uid://dxm0ulwxcglbt" path="res://main/scripts/game.gd" id="1_nadq4"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_nadq4")
+starting_map = "uid://qe0jg568lw27"
+
+[node name="Player" parent="." instance=ExtResource("1_4hvhl")]
